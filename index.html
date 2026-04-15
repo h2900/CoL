@@ -45,15 +45,15 @@
     position: relative;
 }
 
-/* إجبار النص tc0l على الظهور بلون أبيض */
+
 #user-display-name.has-tooltip::after {
-    content: "tc0l" !important; /* كتابة الكلمة مباشرة هنا أضمن حل */
+    content: "tc0l" !important; 
     position: absolute;
     bottom: calc(100% + 15px);
     left: 50%;
     transform: translateX(-50%) translateY(10px);
     padding: 8px 16px;
-    background: rgba(0, 0, 0, 0.8) !important; /* خلفية غامقة عشان يبان النص */
+    background: rgba(0, 0, 0, 0.8) !important; 
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     backdrop-filter: blur(15px);
@@ -240,7 +240,7 @@
             align-items: flex-start; 
         }
 
-        /* تعديل الاسم: لمعان وتوهج برونزي احترافي */
+        
         #user-name { 
             margin: 5; 
             font-family: 'Syne'; 
@@ -263,7 +263,7 @@
             padding: 0 30px 30px 30px; 
         }
 
-        /* تعديل سبوتيفاي: تصميم زجاجي متطور */
+     
         .spotify-container { 
             background: linear-gradient(135deg, rgba(30, 215, 96, 0.15) 0%, rgba(0, 0, 0, 0.4) 100%); 
             border: 1px solid rgba(30, 215, 96, 0.25); 
@@ -321,36 +321,36 @@
 }
 
 .has-tooltip::after {
-    /* سحب النص من الـ HTML وإجباره على الظهور */
+    
     content: attr(data-custom-tooltip) !important; 
     position: absolute;
     
-    /* الموقع فوق الاسم بالضبط */
+  
     bottom: calc(100% + 12px); 
     left: 50%;
     transform: translateX(-50%) translateY(10px);
     
-    /* التصميم الزجاجي حقك */
+
     padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.05); /* زجاجي خفيف */
+    background: rgba(255, 255, 255, 0.05); 
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     backdrop-filter: blur(15px);
     
-    /* أهم تعديل: اللون الأبيض الواضح */
+
     color: #ffffff !important; 
     font-size: 0.75rem;
     font-weight: 800;
     white-space: nowrap;
     
-    /* التحكم بالظهور */
+ 
     opacity: 0;
     pointer-events: none;
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     z-index: 9999;
 }
 
-/* حركة الظهور عند لمس الاسم */
+
 .has-tooltip:hover::after { 
     opacity: 1; 
     transform: translateX(-50%) translateY(0); 
