@@ -302,7 +302,7 @@
             display: flex; 
             align-items: center; 
             gap: 15px; 
-            background: rgba(139, 107, 76, 0.15); 
+            background: rgba(139, 107, 76, 0.15);  
             padding: 3px 20px; 
             border-radius: 15px; 
             border: 2px solid rgba(139, 107, 76, 0.3); 
@@ -332,7 +332,7 @@
     
 
     padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.05); 
+    background:rgba(255, 255, 255, 0.05); 
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     backdrop-filter: blur(15px);
@@ -400,6 +400,50 @@
             max-height: 32px; 
             border-radius: 5px; 
         }
+        #enter-screen {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: #000000fa; /* يمكنك وضع صورة خلفية هنا أيضاً */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    cursor: pointer;
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.enter-content {
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+}
+
+
+.loaded #enter-screen {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.custom-management .role-box {
+    border-color: rgba(139, 107, 76, 0.3);  
+    background: rgba(139, 107, 76, 0.15); 
+}
+
+.management-text {
+    color: #8b6b4c; 
+    font-weight: 800;
+    font-size: 0.85rem;
+    filter: drop-shadow(0 0 5px rgba(139, 107, 76, 0.5)); 
+}
+
+.custom-management.has-tooltip::after {
+    border-color: #672151;
+    color: #672151 !important;
+}
     </style>
 </head>
 <body>
@@ -436,18 +480,19 @@
                 </div>
             </div>
 
-            <div class="role-section has-tooltip" data-custom-tooltip="Click to View MTA: High Management">
-                <div class="role-box">
-                    <img src="mta_badge.png" style="height: 30px;">
-                    <span style="color: var(--role-bronze); font-weight: 800; font-size: 0.85rem;">MTA: High Management</span>
-                </div>
-            </div>
+<div class="role-section has-tooltip custom-management" data-custom-tooltip="Senior Management">
+    <div class="role-box">
+        <img src="mta_badge.png" style="height: 30px;">
+        <span class="management-text">MTA: High Management</span>
+    </div>
+</div>
 
             <div class="badges-area">
                 <div class="has-tooltip badge-wrapper" data-custom-tooltip="Originally known as LAHCEN#5790"><img src="username.png" class="badge-icon"></div>
                 <div class="has-tooltip badge-wrapper" data-custom-tooltip="Completed a Quest"><img src="quest.png" class="badge-icon"></div>
                 <div class="has-tooltip badge-wrapper" data-custom-tooltip="HypeSquad Bravery"><img src="hypesquadbravery.svg" class="badge-icon"></div>
                 <div class="has-tooltip badge-wrapper" data-custom-tooltip="Orbs"><img src="orb.svg" class="badge-icon"></div>
+                <div class="has-tooltip badge-wrapper" data-custom-tooltip="Lest Meadow Online"><img src="Ca105ad9cfc8580c765101d17bbb2323.webp" class="badge-icon"></div>
             </div>
 
             <div class="social-grid">
@@ -529,6 +574,26 @@
             } catch (e) {}
         }
         setInterval(update, 5000); update();
+     
+function enterProfile() {
+  
+    document.body.classList.add('loaded');
+
+
+    const audio = document.getElementById('bg-music');
+    audio.play().catch(e => console.log("Autoplay blocked"));
+    isPlaying = true;
+    document.getElementById('play-icon').className = "fa-solid fa-pause";
+
+}
+
+
     </script>
 </body>
+<div id="enter-screen" onclick="enterProfile()">
+    <div class="enter-content">
+        <h2 style="font-family: 'Syne'; letter-spacing: 2px; color: #8b6b4c;">COLONEL</h2>
+        <p>[ Click To Enter ]</p>
+    </div>
+</div>
 </html>
